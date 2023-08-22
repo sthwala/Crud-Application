@@ -1,22 +1,22 @@
-import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./components/Home";
-import Create from "./components/Create";
-//import Delete from "./components/Delete";
-import Member from "./components/Member";
+import React from "react";
+import { BrowserRouter as Router,Routes,Route } from "react-router-dom";
+import Home from "./components/Home"
+import Create from "./components/Create"
+import Edit from "./components/Edit"
+//import Delete from "./components/Delete"
 
-export default function App() {
+
+function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />}>
-          <Route path="Create" element={<Create />} />
-          <Route path="Member" element={<Member />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
-  );
+    <Router>
+        <Routes>
+            <Route path="/" exact element={<Home/>}/>
+            <Route path="/Create" element={<Create/>}/>
+            <Route path="/edit:id" element={<Edit/>}/>
+            {/* <Route path="/delete:id" element={<Delete/>}/> */}
+        </Routes>
+      </Router>
+  )
 }
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App />);
+export default App
